@@ -1,0 +1,1 @@
+# EFCore-ConcreteTypeMapping-Bug
