@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace WebApplication2
 {
@@ -23,6 +26,7 @@ namespace WebApplication2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddMySession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,7 +35,7 @@ namespace WebApplication2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-             
+
             }
             else
             {
@@ -39,7 +43,7 @@ namespace WebApplication2
             }
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

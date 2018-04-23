@@ -1,5 +1,11 @@
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 <h1>test</h1>
+<form action="/Home/Form" method="post">
+	ID <input type="text" name="ObjectID" /> <br />
+	Name <input type="text" name="ObjectName" /> <br />
+	Email <input type="email" name="email" /> <br />
+	<button type="submit" value="Submit">Submit</button>
+</form>
